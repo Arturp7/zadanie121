@@ -6,16 +6,16 @@ public class Person {
     private String pesel;
 
 
-    public Person(String firstName, String lastName, int age, String pesel) {
+    public Person(String firstName, String lastName, int age, String pesel) throws Exception {
         if (firstName.length() >= 2) {
             this.firstName = firstName;
-        } else throw new NameUndefinedException();
-         if (lastName.length() >=  2)
-        this.lastName = lastName;
-         else throw new NameUndefinedException();
+        } else throw new NameUndefinedException("Imię za krótkie");
+        if (lastName.length() >= 2)
+            this.lastName = lastName;
+        else throw new NameUndefinedException("Nazwisko za krótkie");
         if (age >= 1)
             this.age = age;
-        else throw new IncorrectAgeException();
+        else throw new IncorrectAgeException("wiek większy lub równy jeden rok ");
         this.pesel = pesel;
     }
 
